@@ -1,134 +1,130 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-// Variants for scrolling animations
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0 },
-};
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoneyCheckAlt, faChartLine, faBullseye, faClipboardList, faHandsHelping } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <motion.header
-        className="bg-blue-500 text-white h-screen flex items-center justify-center flex-col text-center px-6"
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}  // Fades in without sliding
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl font-bold mb-6">Take Control of Your Freelance Finances</h1>
-        <p className="text-xl mb-8 max-w-2xl">
-          BudgTrack helps freelancers and gig workers track income, forecast cash flow, and manage financial goals in one place. Simplify your finances and gain confidence in your future.
-        </p>
-        <a href="#signup" className="bg-green-500 px-6 py-3 rounded-md text-white font-semibold">
+      <header className="bg-blue-500 text-white h-screen flex items-center justify-center flex-col text-center">
+        <motion.h2
+          className="text-5xl font-bold mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
+          Track, Budget, Grow
+        </motion.h2>
+        <motion.p
+          className="text-xl mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        >
+          Track income, forecast cash flow, and reach your financial goals with BudgTrack.
+        </motion.p>
+        <motion.a
+          href="#signup"
+          className="bg-green-500 px-6 py-3 rounded-md text-white font-semibold"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.8 }}
+        >
           Join the Waitlist
-        </a>
-      </motion.header>
+        </motion.a>
+      </header>
 
-      {/* Key Benefits Section */}
-      <motion.section
-        className="py-24 bg-gray-100 text-gray-800"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={slideInRight}
-        transition={{ duration: 0.5 }}
-      >
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-gray-100 text-gray-800">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Why BudgTrack?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <i className="fas fa-dollar-sign text-blue-600 text-4xl mb-4"></i>
-              <h3 className="text-xl font-bold">Automated Income Tracking</h3>
-              <p className="text-gray-600">Easily track your income from multiple freelance gigs without the hassle.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <i className="fas fa-chart-line text-blue-600 text-4xl mb-4"></i>
-              <h3 className="text-xl font-bold">AI-Powered Cash Flow Forecasting</h3>
-              <p className="text-gray-600">Get accurate, AI-driven cash flow predictions based on your earnings and expenses.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <i className="fas fa-bullseye text-blue-600 text-4xl mb-4"></i>
-              <h3 className="text-xl font-bold">Financial Goal Setting</h3>
-              <p className="text-gray-600">Set and track personal financial goals to stay on top of your finances.</p>
-            </div>
+          <h3 className="text-4xl font-bold mb-16">Why Choose BudgTrack?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <motion.div
+              className="bg-white rounded-lg shadow-lg p-10"
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex justify-center mb-6">
+                <FontAwesomeIcon icon={faMoneyCheckAlt} className="text-blue-600 text-6xl" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Track Your Income</h3>
+              <p className="text-lg text-gray-600">
+                Track your earnings from various gigs in one place.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-lg shadow-lg p-10"
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex justify-center mb-6">
+                <FontAwesomeIcon icon={faChartLine} className="text-blue-600 text-6xl" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">AI-Powered Forecasting</h3>
+              <p className="text-lg text-gray-600">
+                Use AI to predict cash flow based on your earnings.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-lg shadow-lg p-10"
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex justify-center mb-6">
+                <FontAwesomeIcon icon={faBullseye} className="text-blue-600 text-6xl" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Set Financial Goals</h3>
+              <p className="text-lg text-gray-600">
+                Plan your financial goals and track your progress.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* How It Works Section */}
-      <motion.section
-        className="py-24 bg-white text-gray-800"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={slideInLeft}
-        transition={{ duration: 0.5 }}
-      >
+      {/* New Financial Planning Section */}
+      <section id="financial-planning" className="py-20 bg-white text-gray-800">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">How It Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-              <i className="fas fa-sync-alt text-blue-600 text-4xl mb-4"></i>
-              <h3 className="text-xl font-bold">1. Connect Your Accounts</h3>
-              <p className="text-gray-600">Link your freelance platforms or manually input your earnings to track all income in one place.</p>
-            </div>
-            <div>
-              <i className="fas fa-brain text-blue-600 text-4xl mb-4"></i>
-              <h3 className="text-xl font-bold">2. Get Smart Insights</h3>
-              <p className="text-gray-600">BudgTrack analyzes your income patterns and provides actionable insights to help you save and plan better.</p>
-            </div>
-            <div>
-              <i className="fas fa-trophy text-blue-600 text-4xl mb-4"></i>
-              <h3 className="text-xl font-bold">3. Achieve Your Goals</h3>
-              <p className="text-gray-600">Set financial goals, get tailored recommendations, and watch your progress with real-time data.</p>
-            </div>
+          <h3 className="text-4xl font-bold mb-16">Plan for the Future</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
+            <motion.div
+              className="bg-gray-100 rounded-lg shadow-lg p-10"
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex justify-center mb-6">
+                <FontAwesomeIcon icon={faClipboardList} className="text-green-600 text-6xl" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Customizable Budgets</h3>
+              <p className="text-lg text-gray-600">
+                Create personalized budgets tailored to your needs.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-gray-100 rounded-lg shadow-lg p-10"
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex justify-center mb-6">
+                <FontAwesomeIcon icon={faHandsHelping} className="text-green-600 text-6xl" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Guided Financial Planning</h3>
+              <p className="text-lg text-gray-600">
+                Get personalized advice to help you stay on track.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </motion.section>
-
-      {/* Signup Section */}
-      <motion.section
-        id="signup"
-        className="py-24 bg-blue-600 text-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={slideInRight}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-8">Join the BudgTrack Waitlist</h3>
-          <form className="flex justify-center">
-            <input type="email" placeholder="Enter your email" className="p-3 rounded-l-lg text-gray-800" />
-            <button className="bg-green-500 px-6 py-3 rounded-r-lg font-semibold">Sign Up</button>
-          </form>
-        </div>
-      </motion.section>
-
-      {/* Footer Section */}
-      <footer className="bg-gray-900 text-white py-6">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2024 BudgTrack - All Rights Reserved</p>
-          <p>
-            Follow us on:
-            <a href="https://twitter.com" className="text-blue-400 ml-2">Twitter</a>
-            <a href="https://linkedin.com" className="text-blue-400 ml-2">LinkedIn</a>
-          </p>
-        </div>
-      </footer>
+      </section>
     </div>
   );
 }
